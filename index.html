@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BIKELIVE | Superbikes & High Displacement Bikes</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js"></script>
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brandRed: '#ef4444',
+            brandDark: '#0b0c10',
+            brandGray: '#1a1c23',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Rajdhani:wght@500;600;700&family=Inter:wght@300;400;600&display=swap');
+
+    body {
+      font-family: 'Inter', sans-serif;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .font-brand { font-family: 'Orbitron', sans-serif; }
+    .font-tech { font-family: 'Rajdhani', sans-serif; }
+
+    .glow-effect {
+      box-shadow: 0 0 20px rgba(239, 68, 68, 0.3);
+    }
+
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #0b0c10; }
+    ::-webkit-scrollbar-thumb { background: #374151; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #ef4444; }
+  </style>
+</head>
+<body class="bg-[#0b0c10] text-gray-100 min-h-screen flex flex-col dark:bg-[#0b0c10] dark:text-gray-100">
+
+  <!-- NAVEGACIÓN -->
+  <header class="fixed top-0 left-0 right-0 z-40 bg-black/90 backdrop-blur-md border-b border-gray-800 transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <!-- Logo -->
+      <a href="#inicio" class="flex items-center gap-2 group">
+        <i data-lucide="zap" class="w-8 h-8 text-red-600 transition-transform group-hover:scale-110"></i>
+        <span class="font-brand text-2xl font-black tracking-wider text-white">
+          BIKE<span class="text-red-600">LIVE</span>
+        </span>
+      </a>
+
+      <!-- Menú Desktop -->
+      <nav class="hidden md:flex items-center gap-8 font-tech text-lg font-bold tracking-wide text-gray-300">
+        <a href="#inicio" class="hover:text-red-500 transition-colors">INICIO</a>
+        <a href="#nosotros" class="hover:text-red-500 transition-colors">QUIÉNES SOMOS</a>
+        <a href="#portafolio" class="hover:text-red-500 transition-colors">PORTAFOLIO</a>
+        <a href="#servicios" class="hover:text-red-500 transition-colors">SERVICIOS</a>
+        <a href="#contacto" class="hover:text-red-500 transition-colors">CONTACTO</a>
+      </nav>
+
+      <!-- Modo Oscuro / Claro -->
+      <div class="flex items-center gap-4">
+        <button id="theme-toggle" class="p-2.5 bg-gray-900 border border-gray-800 rounded-full hover:border-red-600 transition-colors text-gray-300 hover:text-white" title="Cambiar Tema">
+          <i data-lucide="moon" id="theme-icon" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 1. INICIO & CARRUSEL -->
+  <section id="inicio" class="relative pt-24 min-h-[90vh] flex flex-col justify-center overflow-hidden">
+    <div class="relative max-w-7xl mx-auto px-4 w-full py-12">
+      <!-- Carrusel -->
+      <div class="relative h-[450px] sm:h-[550px] rounded-3xl overflow-hidden border border-gray-800 shadow-2xl">
+        <div id="carousel-slides" class="w-full h-full relative">
+          <!-- Diapositivas dinámicas -->
+        </div>
+
+        <button id="prev-slide" class="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-black/60 hover:bg-red-600 border border-gray-700 rounded-full text-white transition-all">
+          <i data-lucide="chevron-left" class="w-6 h-6"></i>
+        </button>
+        <button id="next-slide" class="absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-black/60 hover:bg-red-600 border border-gray-700 rounded-full text-white transition-all">
+          <i data-lucide="chevron-right" class="w-6 h-6"></i>
+        </button>
+
+        <div id="carousel-indicators" class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+          <!-- Indicadores dinámicos -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. QUIÉNES SOMOS -->
+  <section id="nosotros" class="py-20 bg-gray-950/60 border-y border-gray-800/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div>
+          <span class="text-red-500 font-tech font-bold uppercase tracking-widest text-sm">ADN BIKELIVE</span>
+          <h2 class="font-brand text-3xl sm:text-5xl font-black text-white mt-2 mb-6">PASIÓN POR EL ALTO CILINDRAJE</h2>
+          <p class="text-gray-400 leading-relaxed mb-4">
+            En BIKELIVE no comercializamos motocicletas convencionales. Somos la firma especialista número uno en la importación, preparación y entrega de hiper-deportivas, hyper-nakeds y adventure de más de 600cc.
+          </p>
+          <p class="text-gray-400 leading-relaxed mb-6">
+            Nuestros estándares garantizan la máxima ingeniería, homologación oficial de pista y soporte técnico integral con telemetría avanzada para pilotos exigentes.
+          </p>
+          <div class="grid grid-cols-3 gap-4 pt-4 border-t border-gray-800 font-tech text-center">
+            <div>
+              <span class="block text-3xl font-extrabold text-red-500">+600cc</span>
+              <span class="text-xs text-gray-400 uppercase">Especialización</span>
+            </div>
+            <div>
+              <span class="block text-3xl font-extrabold text-white">100%</span>
+              <span class="text-xs text-gray-400 uppercase">Garantía Oficial</span>
+            </div>
+            <div>
+              <span class="block text-3xl font-extrabold text-red-500">+1.2k</span>
+              <span class="text-xs text-gray-400 uppercase">Pilotos Satisfechos</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative">
+          <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&q=80&w=1000" alt="Showroom Bikelive" class="rounded-2xl border border-gray-800 shadow-2xl object-cover w-full h-[400px]">
+          <div class="absolute -bottom-6 -left-6 bg-red-600 text-white p-6 rounded-2xl hidden sm:block glow-effect">
+            <i data-lucide="shield-check" class="w-10 h-10 mb-2"></i>
+            <p class="font-tech text-lg font-bold leading-tight uppercase">Certificación de<br>Rendimiento Pista</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. PORTAFOLIO DE MOTOS -->
+  <section id="portafolio" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+      <div>
+        <span class="text-red-500 font-tech font-bold uppercase tracking-widest text-sm">Catálogo Exclusivo</span>
+        <h2 class="font-brand text-3xl sm:text-4xl font-extrabold text-white mt-1">PORTAFOLIO <span class="text-red-600">HIGH CC</span></h2>
+      </div>
+
+      <div class="flex flex-wrap gap-2 bg-gray-900 p-1.5 rounded-xl border border-gray-800">
+        <button class="filter-btn active px-4 py-2 rounded-lg font-tech text-sm font-bold uppercase transition-all bg-red-600 text-white" data-filter="all">Todas</button>
+        <button class="filter-btn px-4 py-2 rounded-lg font-tech text-sm font-bold uppercase transition-all text-gray-400 hover:text-white" data-filter="pista">Pista</button>
+        <button class="filter-btn px-4 py-2 rounded-lg font-tech text-sm font-bold uppercase transition-all text-gray-400 hover:text-white" data-filter="naked">Hyper Naked</button>
+        <button class="filter-btn px-4 py-2 rounded-lg font-tech text-sm font-bold uppercase transition-all text-gray-400 hover:text-white" data-filter="adventure">Adventure</button>
+      </div>
+    </div>
+
+    <div id="motos-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Generado con JS -->
+    </div>
+  </section>
+
+  <!-- 4. SERVICIOS Y CALCULADORA -->
+  <section id="servicios" class="py-20 bg-gray-950/80 border-t border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-red-500 font-tech font-bold uppercase tracking-widest text-sm">Soporte y Financiación</span>
+        <h2 class="font-brand text-3xl sm:text-4xl font-extrabold text-white mt-1">NUESTROS SERVICIOS</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        <div class="bg-gray-900 border border-gray-800 p-8 rounded-2xl hover:border-red-600/50 transition-colors">
+          <i data-lucide="wrench" class="w-10 h-10 text-red-500 mb-4"></i>
+          <h3 class="font-brand text-xl font-bold text-white mb-2">Taller de Pista</h3>
+          <p class="text-gray-400 text-sm">Mantenimiento especializado, mapeo de ECU y calibración electrónica de suspensiones.</p>
+        </div>
+        <div class="bg-gray-900 border border-gray-800 p-8 rounded-2xl hover:border-red-600/50 transition-colors">
+          <i data-lucide="calculator" class="w-10 h-10 text-red-500 mb-4"></i>
+          <h3 class="font-brand text-xl font-bold text-white mb-2">Financiamiento High-CC</h3>
+          <p class="text-gray-400 text-sm">Planes personalizados con cuotas flexibles y tasa preferencial en dólares.</p>
+        </div>
+        <div class="bg-gray-900 border border-gray-800 p-8 rounded-2xl hover:border-red-600/50 transition-colors">
+          <i data-lucide="gauge" class="w-10 h-10 text-red-500 mb-4"></i>
+          <h3 class="font-brand text-xl font-bold text-white mb-2">Test Drive Privado</h3>
+          <p class="text-gray-400 text-sm">Pruebas de aceleración y control en autódromo bajo supervisión profesional.</p>
+        </div>
+      </div>
+
+      <!-- Calculadora Interactiva -->
+      <div class="bg-gray-900 border border-gray-800 rounded-3xl p-6 sm:p-10 max-w-4xl mx-auto">
+        <h3 class="font-brand text-2xl font-bold text-white mb-6 text-center flex items-center justify-center gap-2">
+          <i data-lucide="calculator" class="text-red-500"></i> CALCULADORA DE CUOTAS
+        </h3>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          <div class="space-y-6">
+            <div>
+              <label class="block text-xs font-tech font-bold uppercase text-gray-400 mb-2">Selecciona la Moto</label>
+              <select id="calc-moto" class="w-full bg-black border border-gray-800 rounded-xl p-3 text-white focus:border-red-600 focus:outline-none">
+                <!-- JS Options -->
+              </select>
+            </div>
+            <div>
+              <div class="flex justify-between text-xs font-tech font-bold uppercase text-gray-400 mb-2">
+                <span>Cuota Inicial (%)</span>
+                <span id="calc-down-val" class="text-red-500">20%</span>
+              </div>
+              <input type="range" id="calc-down" min="10" max="50" step="5" value="20" class="w-full accent-red-600 bg-gray-800 h-2 rounded-lg appearance-none cursor-pointer">
+            </div>
+            <div>
+              <div class="flex justify-between text-xs font-tech font-bold uppercase text-gray-400 mb-2">
+                <span>Plazo (Meses)</span>
+                <span id="calc-months-val" class="text-red-500">36 Meses</span>
+              </div>
+              <input type="range" id="calc-months" min="12" max="60" step="12" value="36" class="w-full accent-red-600 bg-gray-800 h-2 rounded-lg appearance-none cursor-pointer">
+            </div>
+          </div>
+
+          <div class="bg-black/60 p-6 rounded-2xl border border-gray-800 space-y-4">
+            <div>
+              <span class="block text-xs text-gray-400 font-tech uppercase">Pago Inicial Estimado</span>
+              <span id="res-downpay" class="text-2xl font-bold font-tech text-white">$0 USD</span>
+            </div>
+            <div class="pt-4 border-t border-gray-800">
+              <span class="block text-xs text-red-400 font-tech uppercase">Cuota Mensual Estimada</span>
+              <span id="res-monthly" class="text-3xl font-bold font-tech text-red-500">$0 USD</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. CONTACTO CON VALIDACIÓN DE FORMULARIO -->
+  <section id="contacto" class="py-20 max-w-4xl mx-auto px-4 w-full">
+    <div class="text-center mb-12">
+      <span class="text-red-500 font-tech font-bold uppercase tracking-widest text-sm">Atención Personalizada</span>
+      <h2 class="font-brand text-3xl sm:text-4xl font-extrabold text-white mt-1">CONTACTA A UN ASESOR</h2>
+      <p class="text-gray-400 mt-2 text-sm">Agenda una cita en nuestro showroom o solicita atención inmediata.</p>
+    </div>
+
+    <form id="contact-form" class="bg-gray-900 border border-gray-800 rounded-3xl p-6 sm:p-10 space-y-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div>
+          <label class="block text-xs font-tech font-bold uppercase text-gray-400 mb-2">Nombre Completo *</label>
+          <input type="text" id="form-name" placeholder="Ej: Carlos Mendoza" class="w-full bg-black border border-gray-800 rounded-xl p-3 text-white focus:border-red-600 focus:outline-none">
+          <span id="err-name" class="text-xs text-red-500 hidden mt-1">Por favor ingresa tu nombre.</span>
+        </div>
+        <div>
+          <label class="block text-xs font-tech font-bold uppercase text-gray-400 mb-2">Correo Electrónico *</label>
+          <input type="email" id="form-email" placeholder="carlos@correo.com" class="w-full bg-black border border-gray-800 rounded-xl p-3 text-white focus:border-red-600 focus:outline-none">
+          <span id="err-email" class="text-xs text-red-500 hidden mt-1">Por favor ingresa un correo válido.</span>
+        </div>
+      </div>
+
+      <div>
+        <label class="block text-xs font-tech font-bold uppercase text-gray-400 mb-2">Teléfono *</label>
+        <input type="tel" id="form-phone" placeholder="+57 300 000 0000" class="w-full bg-black border border-gray-800 rounded-xl p-3 text-white focus:border-red-600 focus:outline-none">
+        <span id="err-phone" class="text-xs text-red-500 hidden mt-1">Ingresa un número telefónico válido.</span>
+      </div>
+
+      <div>
+        <label class="block text-xs font-tech font-bold uppercase text-gray-400 mb-2">Mensaje o Modelo de Interés *</label>
+        <textarea id="form-message" rows="4" placeholder="Estoy interesado en cotizar la Ducati Panigale V4..." class="w-full bg-black border border-gray-800 rounded-xl p-3 text-white focus:border-red-600 focus:outline-none"></textarea>
+        <span id="err-message" class="text-xs text-red-500 hidden mt-1">El mensaje no puede estar vacío.</span>
+      </div>
+
+      <button type="submit" class="w-full py-4 bg-red-600 hover:bg-red-700 text-white font-tech text-lg font-bold uppercase tracking-wider rounded-xl transition-all glow-effect">
+        Enviar Solicitud de Contacto
+      </button>
+
+      <div id="form-success" class="hidden p-4 bg-green-950/60 border border-green-800 text-green-400 text-sm rounded-xl text-center font-tech font-bold">
+        ✓ Mensaje enviado con éxito. Un especialista de BIKELIVE se comunicará contigo.
+      </div>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-black border-t border-gray-900 py-12 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 text-center sm:text-left flex flex-col sm:flex-row justify-between items-center gap-6">
+      <div>
+        <div class="flex items-center justify-center sm:justify-start gap-2 mb-2">
+          <i data-lucide="zap" class="w-6 h-6 text-red-600"></i>
+          <span class="font-brand text-xl font-bold text-white">BIKE<span class="text-red-600">LIVE</span></span>
+        </div>
+        <p class="text-xs text-gray-500">© 2026 BIKELIVE. Todos los derechos reservados.</p>
+      </div>
+
+      <div class="flex gap-6 text-gray-400 text-sm font-tech">
+        <a href="#inicio" class="hover:text-red-500">Inicio</a>
+        <a href="#nosotros" class="hover:text-red-500">Nosotros</a>
+        <a href="#portafolio" class="hover:text-red-500">Portafolio</a>
+        <a href="#servicios" class="hover:text-red-500">Servicios</a>
+        <a href="#contacto" class="hover:text-red-500">Contacto</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL DE FICHA TÉCNICA -->
+  <div id="modal-details" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 hidden">
+    <div class="bg-gray-900 border border-gray-800 rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 relative">
+      <button id="close-modal" class="absolute top-4 right-4 text-gray-400 hover:text-white">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
+      <div id="modal-content">
+        <!-- JS Content -->
+      </div>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    // BASE DE DATOS DE MOTOS
+    const MOTOS = [
+      {
+        id: 1,
+        nombre: "Ducati Panigale V4 S",
+        categoria: "pista",
+        cc: 1103,
+        hp: 215,
+        torque: "124 Nm",
+        peso: "195.5 kg",
+        precio: 34900,
+        imagen: "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&q=80&w=1000",
+        descripcion: "Superbike homologada de carreras con motor Desmosedici Stradale V4."
+      },
+      {
+        id: 2,
+        nombre: "Kawasaki Z H2 SE",
+        categoria: "naked",
+        cc: 998,
+        hp: 200,
+        torque: "137 Nm",
+        peso: "240 kg",
+        precio: 23500,
+        imagen: "https://images.unsplash.com/photo-1609630875171-b1321377ee65?auto=format&fit=crop&q=80&w=1000",
+        descripcion: "Hypernaked sobrealimentada con supercargador exclusivo Kawasaki."
+      },
+      {
+        id: 3,
+        nombre: "BMW R 1250 GS Adventure",
+        categoria: "adventure",
+        cc: 1254,
+        hp: 136,
+        torque: "143 Nm",
+        peso: "268 kg",
+        precio: 28900,
+        imagen: "https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&q=80&w=1000",
+        descripcion: "Rendimiento todoterreno sin fronteras con motor Boxer y ajuste dinámico."
+      },
+      {
+        id: 4,
+        nombre: "Yamaha YZF-R1M",
+        categoria: "pista",
+        cc: 998,
+        hp: 200,
+        torque: "113 Nm",
+        peso: "202 kg",
+        precio: 27500,
+        imagen: "https://images.unsplash.com/photo-1615172282427-9a57ef2d142e?auto=format&fit=crop&q=80&w=1000",
+        descripcion: "Chasis en fibra de carbono y amortiguación electrónica Öhlins ERS."
+      },
+      {
+        id: 5,
+        nombre: "KTM 1290 Super Duke R",
+        categoria: "naked",
+        cc: 1301,
+        hp: 180,
+        torque: "140 Nm",
+        peso: "189 kg",
+        precio: 21900,
+        imagen: "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&q=80&w=1000",
+        descripcion: "Conocida como 'The Beast', ligera y con entrega inmediata de par."
+      },
+      {
+        id: 6,
+        nombre: "Honda Africa Twin CRF1100L",
+        categoria: "adventure",
+        cc: 1084,
+        hp: 102,
+        torque: "105 Nm",
+        peso: "226 kg",
+        precio: 18400,
+        imagen: "https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&q=80&w=1000",
+        descripcion: "Icónico modelo para expediciones extremas con opción de transmisión DCT."
+      }
+    ];
+
+    // INICIALIZACIÓN
+    document.addEventListener("DOMContentLoaded", () => {
+      lucide.createIcons();
+      initCarousel();
+      renderCatalog(MOTOS);
+      populateSelects();
+      setupCalculator();
+      setupValidation();
+      setupThemeToggle();
+    });
+
+    // Modo Oscuro / Claro
+    function setupThemeToggle() {
+      const toggleBtn = document.getElementById("theme-toggle");
+      const icon = document.getElementById("theme-icon");
+
+      toggleBtn.addEventListener("click", () => {
+        document.documentElement.classList.toggle("dark");
+        const isDark = document.documentElement.classList.contains("dark");
+        icon.setAttribute("data-lucide", isDark ? "moon" : "sun");
+        lucide.createIcons();
+      });
+    }
+
+    // Dynamic Carrusel
+    let currentSlide = 0;
+    function initCarousel() {
+      const slidesContainer = document.getElementById("carousel-slides");
+      const indicatorsContainer = document.getElementById("carousel-indicators");
+
+      const featured = MOTOS.slice(0, 3);
+
+      slidesContainer.innerHTML = featured.map((m, idx) => `
+        <div class="carousel-item absolute inset-0 transition-opacity duration-700 ${idx === 0 ? 'opacity-100' : 'opacity-0'}">
+          <img src="${m.imagen}" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent flex items-end p-8 sm:p-12">
+            <div>
+              <span class="bg-red-600 text-white font-tech text-xs font-bold px-3 py-1 rounded-full uppercase">${m.cc} CC</span>
+              <h2 class="font-brand text-3xl sm:text-5xl font-extrabold text-white mt-2">${m.nombre}</h2>
+              <p class="text-gray-300 font-tech text-xl mt-1">$${m.precio.toLocaleString()} USD</p>
+            </div>
+          </div>
+        </div>
+      `).join('');
+
+      indicatorsContainer.innerHTML = featured.map((_, idx) => `
+        <button class="indicator-btn w-3 h-3 rounded-full transition-all ${idx === 0 ? 'bg-red-600 w-8' : 'bg-gray-600'}" data-slide="${idx}"></button>
+      `).join('');
+
+      document.getElementById("next-slide").addEventListener("click", nextSlide);
+      document.getElementById("prev-slide").addEventListener("click", prevSlide);
+
+      setInterval(nextSlide, 5000);
+    }
+
+    function showSlide(index) {
+      const items = document.querySelectorAll(".carousel-item");
+      const dots = document.querySelectorAll(".indicator-btn");
+
+      items.forEach((item, idx) => {
+        item.classList.toggle("opacity-100", idx === index);
+        item.classList.toggle("opacity-0", idx !== index);
+      });
+
+      dots.forEach((dot, idx) => {
+        dot.classList.toggle("bg-red-600", idx === index);
+        dot.classList.toggle("w-8", idx === index);
+        dot.classList.toggle("bg-gray-600", idx !== index);
+        dot.classList.toggle("w-3", idx !== index);
+      });
+
+      currentSlide = index;
+    }
+
+    function nextSlide() {
+      showSlide((currentSlide + 1) % 3);
+    }
+
+    function prevSlide() {
+      showSlide((currentSlide - 1 + 3) % 3);
+    }
+
+    // Catalogo
+    function renderCatalog(items) {
+      const grid = document.getElementById("motos-grid");
+      grid.innerHTML = items.map(m => `
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-red-600/50 transition-all group flex flex-col">
+          <div class="relative h-56 overflow-hidden bg-black">
+            <img src="${m.imagen}" alt="${m.nombre}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100">
+            <span class="absolute top-3 left-3 bg-red-600 text-white font-tech font-bold text-xs px-2.5 py-1 rounded-md uppercase">
+              ${m.cc} CC
+            </span>
+          </div>
+
+          <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <h3 class="font-brand text-xl font-bold text-white group-hover:text-red-500 transition-colors">${m.nombre}</h3>
+              <p class="text-gray-400 text-xs mt-1 leading-relaxed">${m.descripcion}</p>
+            </div>
+
+            <div class="grid grid-cols-2 gap-2 bg-black/50 p-3 rounded-xl text-center font-tech">
+              <div>
+                <span class="block text-gray-500 text-xs uppercase">Potencia</span>
+                <span class="text-white font-bold text-sm">${m.hp} HP</span>
+              </div>
+              <div>
+                <span class="block text-gray-500 text-xs uppercase">Torque</span>
+                <span class="text-white font-bold text-sm">${m.torque}</span>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between pt-2">
+              <div>
+                <span class="block text-xs text-gray-500 font-tech uppercase">Precio Base</span>
+                <span class="text-2xl font-bold font-tech text-white">$${m.precio.toLocaleString()} USD</span>
+              </div>
+              <button onclick="openModal(${m.id})" class="p-3 bg-red-600 hover:bg-red-700 text-white rounded-xl transition-colors glow-effect" title="Ver Ficha Técnica">
+                <i data-lucide="eye" class="w-5 h-5"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+      lucide.createIcons();
+    }
+
+    // Filtros
+    document.querySelectorAll(".filter-btn").forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        document.querySelectorAll(".filter-btn").forEach(b => {
+          b.classList.remove("bg-red-600", "text-white");
+          b.classList.add("text-gray-400");
+        });
+        e.target.classList.add("bg-red-600", "text-white");
+        e.target.classList.remove("text-gray-400");
+
+        const filter = e.target.dataset.filter;
+        if(filter === "all") renderCatalog(MOTOS);
+        else renderCatalog(MOTOS.filter(m => m.categoria === filter));
+      });
+    });
+
+    // Selects
+    function populateSelects() {
+      const calcSelect = document.getElementById("calc-moto");
+      calcSelect.innerHTML = MOTOS.map(m => `<option value="${m.id}">${m.nombre} ($${m.precio.toLocaleString()} USD)</option>`).join('');
+    }
+
+    // Calculadora
+    function setupCalculator() {
+      const select = document.getElementById("calc-moto");
+      const down = document.getElementById("calc-down");
+      const months = document.getElementById("calc-months");
+
+      function update() {
+        const moto = MOTOS.find(m => m.id == select.value) || MOTOS[0];
+        const downPct = parseInt(down.value) / 100;
+        const totalMonths = parseInt(months.value);
+
+        document.getElementById("calc-down-val").innerText = `${down.value}%`;
+        document.getElementById("calc-months-val").innerText = `${totalMonths} Meses`;
+
+        const initialPay = moto.precio * downPct;
+        const loan = moto.precio - initialPay;
+        const interest = 0.012;
+        const monthly = (loan * interest) / (1 - Math.pow(1 + interest, -totalMonths));
+
+        document.getElementById("res-downpay").innerText = `$${Math.round(initialPay).toLocaleString()} USD`;
+        document.getElementById("res-monthly").innerText = `$${Math.round(monthly).toLocaleString()} USD`;
+      }
+
+      select.addEventListener("change", update);
+      down.addEventListener("input", update);
+      months.addEventListener("input", update);
+      update();
+    }
+
+    // Modal
+    function openModal(id) {
+      const moto = MOTOS.find(m => m.id === id);
+      const modal = document.getElementById("modal-details");
+      const content = document.getElementById("modal-content");
+
+      content.innerHTML = `
+        <img src="${moto.imagen}" class="w-full h-64 object-cover rounded-2xl mb-6 border border-gray-800">
+        <h3 class="font-brand text-2xl font-bold text-white mb-2">${moto.nombre}</h3>
+        <p class="text-gray-400 text-sm mb-6">${moto.descripcion}</p>
+
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 bg-black/60 p-4 rounded-2xl border border-gray-800 text-center font-tech mb-6">
+          <div>
+            <span class="text-xs text-gray-500 uppercase block">Cilindraje</span>
+            <span class="text-lg font-bold text-white">${moto.cc} cc</span>
+          </div>
+          <div>
+            <span class="text-xs text-gray-500 uppercase block">Potencia</span>
+            <span class="text-lg font-bold text-red-500">${moto.hp} HP</span>
+          </div>
+          <div>
+            <span class="text-xs text-gray-500 uppercase block">Torque</span>
+            <span class="text-lg font-bold text-white">${moto.torque}</span>
+          </div>
+          <div>
+            <span class="text-xs text-gray-500 uppercase block">Peso Seco</span>
+            <span class="text-lg font-bold text-white">${moto.peso}</span>
+          </div>
+        </div>
+
+        <a href="#contacto" onclick="closeModal()" class="w-full block text-center py-4 bg-red-600 hover:bg-red-700 text-white font-tech font-bold uppercase rounded-xl transition-all glow-effect">
+          Solicitar Asesoría de este Modelo
+        </a>
+      `;
+
+      modal.classList.remove("hidden");
+    }
+
+    function closeModal() {
+      document.getElementById("modal-details").classList.add("hidden");
+    }
+
+    document.getElementById("close-modal").addEventListener("click", closeModal);
+
+    // Validación de Formulario
+    function setupValidation() {
+      const form = document.getElementById("contact-form");
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        
+        let valid = true;
+        const name = document.getElementById("form-name").value.trim();
+        const email = document.getElementById("form-email").value.trim();
+        const phone = document.getElementById("form-phone").value.trim();
+        const msg = document.getElementById("form-message").value.trim();
+
+        document.getElementById("err-name").classList.toggle("hidden", !!name);
+        document.getElementById("err-email").classList.toggle("hidden", email.includes("@") && email.includes("."));
+        document.getElementById("err-phone").classList.toggle("hidden", phone.length >= 7);
+        document.getElementById("err-message").classList.toggle("hidden", !!msg);
+
+        if(!name || !email.includes("@") || phone.length < 7 || !msg) valid = false;
+
+        if(valid) {
+          document.getElementById("form-success").classList.remove("hidden");
+          form.reset();
+          setTimeout(() => {
+            document.getElementById("form-success").classList.add("hidden");
+          }, 5000);
+        }
+      });
+    }
+  </script>
+</body>
+</html>
